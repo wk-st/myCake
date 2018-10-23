@@ -1,0 +1,57 @@
+.footer{
+    width: 100%;
+    padding:40px 0 20px;
+    background: #684029;
+    color:#fff;
+}
+.footer-container{
+    height: 238px;
+    background: #684029;
+}
+.footer a,.footer a:hover{
+    color:#fff;
+}
+/*在线联系*/
+.footer-online{
+    height: 54px;
+    margin-bottom: 20px;
+    display:flex;
+    justify-content: center;
+}
+.footer-onlineBtn{
+    width: 100px;
+    text-align: center;
+    position: relative;
+}
+.wxcode-online{
+    position: absolute;
+    bottom:51px;
+    right:-45px;
+    display: none;
+    z-index:2;
+}
+/*客服电话*/
+.footer-phone,.footer-add,.footer-copy{
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+}
+/*导航*/
+.footer-nav{
+    height: 44px;
+}
+.footer-nav-ul{
+    width: 657px;
+    margin:0 auto;
+}
+.footer-nav-ul>li{
+    float: left;
+    margin-top: 12px;
+    padding: 0 12px;
+    height: 16px;
+    line-height: 16px;
+    border-right:1px solid #fff; 
+}
+.footer-nav-ul>li:last-child{
+    border:0;
+}

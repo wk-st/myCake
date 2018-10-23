@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/log_reg.css">
+</head>
+<body>
+    <!--头部logo-->
+    <header class="header container-fulid">
+        <div class="header-logo">
+            <a href="index.html"><img src="img/header/logo_new.png" alt=""></a>
+        </div>
+    </header>
+    <!--主体-->
+    <section class="container-fulid">
+        <div class="container login">
+            <div class="form-login">
+                <div class="form-tit">
+                    <h2>欢迎登陆</h2>
+                    <a href="user_register.html">新用户注册</a>
+                </div>
+                <form id="login_from" class="form-content" method="post" action="/user/login">
+                    <div class="form-content-input">
+                        <img src="img/icon/login.png" class="icon-input icon-sm" alt="">
+                        <input id="uname" type="text" name="uname" placeholder="请输入账号">
+                        <span class="promptTxt"></span>
+                    </div>
+                    <div class="form-content-input">
+                        <img src="img/icon/key.png" class="icon-input icon-sm" alt="">
+                        <input id="upwd" type="password" name="upwd" placeholder="请输入密码" autocomplete="off">
+                        <span class="promptTxt"></span>
+                    </div>
+                    <div class="form-content-link clear">
+                        <span href="#"><input type="checkbox" name="ckeckpwd">自动登录</span>
+                        <a href="#">忘记密码?</a>
+                    </div>
+                    <div class="form-content-input">
+                        <input id="login_submit" type="submit" class="form-login-btn" value="登录">
+                    </div>
+                </form>
+            </div>  
+            <div id="res_alert" class="result-login">
+                <a href="javascript:;" class="result-closeBtn">X</a>
+                <header>提示信息</header>
+                <section>用户名不存在</section>
+                <footer>
+                    <button id="res_btn">确定</button>
+                </footer>
+            </div>
+        </div>
+    </section>
+    <!-- 底部 -->
+    <footer  id="globalFooter" class="footer"></footer>
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/user_login.js"></script>
+</body>
+</html>

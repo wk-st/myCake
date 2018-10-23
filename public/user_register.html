@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/log_reg.css">
+</head>
+<body>
+    <!--头部logo-->
+    <header class="header container-fulid">
+        <div class="header-logo">
+            <a href="index.html"><img src="img/header/logo_new.png" alt=""></a>
+        </div>
+    </header>
+    <!-- 主体 -->
+    <section class="container-fulid">
+        <div class="container register">
+            <div class="form-register">
+                <div class="form-tit clear">
+                    <h2>欢迎注册</h2>
+                    <a href="user_login.html">直接登录</a>
+                </div>
+                <form id="reg_form" class="form-content" method="post" action="/user/reg">
+                    <div class="form-content-input">
+                        <img src="img/icon/login.png" class="icon-input icon-sm" alt="">
+                        <input id="uname" type="text" name="uname" placeholder="请输入用户名">
+                        <span class="promptTxt"></span>
+                    </div>
+                    <div class="form-content-input">
+                        <img src="img/icon/key.png" class="icon-input icon-sm" alt="">
+                        <input id="upwd" type="password" name="upwd" placeholder="请输入密码" autocomplete="off">
+                        <span class="promptTxt"></span>
+                    </div>
+                    <div class="form-content-input">
+                        <img src="img/icon/key.png" class="icon-input icon-sm" alt="">
+                        <input id="cpwd" type="password" name="cpwd" placeholder="请确认密码" autocomplete="off">
+                        <span class="promptTxt"></span>
+                    </div>
+                    <div class="form-content-input">
+                        <img src="img/icon/email.png" class="icon-input icon-sm" alt="">
+                        <input id="email" type="text" name="email" placeholder="请输入邮箱">
+                        <span class="promptTxt"></span>
+                    </div>
+                    <div class="form-content-input">
+                        <img src="img/icon/iphone.png" class="icon-input icon-sm" alt="">
+                        <input id="phone" type="text" name="phone" placeholder="请输入手机号">
+                        <span class="promptTxt"></span>
+                    </div>
+                    <div class="form-content-input">
+                        <input id="reg_submit" type="submit" class="form-reg-btn" value="注册">
+                    </div>
+                </form>
+            </div>
+            <div id="res_alert" class="result-reg">
+                <a href="javascript:;" class="result-closeBtn">X</a>
+                <header>提示信息</header>
+                <section>用户名不存在</section>
+                <footer>
+                    <button id="res_btn">确定</button>
+                </footer>
+            </div>
+        </div>
+    </section>
+    <!-- 底部 -->
+    <footer  id="globalFooter" class="footer"></footer>
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/user_reg.js"></script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/details.css">
+</head>
+<body>
+    <header id="globalHeader" class="header"></header>
+    
+    <div id="main_details" class="container main">
+        <!-- 顶部悬浮框 -->
+        <section id="pro_nav" class="container-fulid pro-nav" :style="addStyle">
+            <ul class="list-nav">
+                <li v-text="product.title">雪域牛乳芝士蛋糕</li>
+                <li></li>
+                <li class="hot-nav"><a href="#pro_hot">热门推荐</a></li>
+                <li>
+                    <span class="price-list-nav">
+                        <small>￥</small>
+                        {{product.price|dataFormat}}
+                    </span>
+                    <span>/</span>
+                    <span class="pople-list-nav" v-text="product.spec">
+                        (2-3人食)
+                    </span>
+                </li>
+                <li>
+                    <a href="#" class="cart-list-nav">加入购物车</a>
+                </li>
+            </ul>
+        </section>
+        <!-- 产品介绍 -->
+        <section id="pro_des" class="pro-des">
+            <!-- 头部图片 -->
+            <div class="details-banner">
+                <div class="left-banner">
+                    <img :src="pics[0].lg" :alt="product.title" class="img-lg">
+                </div>
+                <div class="right-banner">
+                    <ul class="imgList-banner">
+                        <li v-for="item in pics" @mouseenter="imgChange($event)"><img :src="item.lg" :alt="product.title" class="img-sm"></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 底部内容 -->
+            <div class="details-content">
+                <div class="left-content">
+                    <h1 class="tit-content" v-text="product.title">数字蛋糕</h1>
+                    <div class="product-tag">
+                        <span class="tag" v-for="item in product.tag">{{item}}</span>
+                    </div>
+                    <ul class="dis-content">
+                        <li>
+                            <img src="img/icon/methods.png" alt="" class="icon-sm">
+                            <span>保鲜条件:</span>
+                            <span v-text="product.storage_methods">0-4℃保藏10小时，5℃食用为佳</span>
+                        </li>
+                        <li>
+                            <img src="img/icon/sweet.png" alt="" class="icon-sm">
+                            <span>参考甜度:</span>
+                            <span>
+                                <img src="img/icon/sweet.png" alt="" class="icon-sm" v-for="i in product.sweet">
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="right-content">
+                    <div class="box-content">
+                        <div class="imgBox-content">
+                            <img src="img/products/details/spec (1).png" alt="" class="img-md" v-if="spec==1">
+                            <img src="img/products/details/spec (2).png" alt="" class="img-md" v-else-if="spec==2">
+                            <img src="img/products/details/spec (3).png" alt="" class="img-md" v-else-if="spec==3">
+                            <img src="img/products/details/spec (4).png" alt="" class="img-md" v-else-if="spec==4">
+                            <img src="img/products/details/spec (5).png" alt="" class="img-md" v-else="spec==5">
+                            <ul class="options-content">
+                                <li>
+                                    <img src="img/icon/size.png" alt="" class="icon-sm">
+                                    <span v-text="product.size">17.5cm×17.5cm</span>
+                                </li>
+                                <li>
+                                    <img src="img/icon/people.png" alt="" class="icon-sm">
+                                    <span v-text="product.people">适合7-8人分享</span>
+                                </li>
+                                <li>
+                                    <img src="img/icon/tableware.png" alt="" class="icon-sm">
+                                    <span v-text="product.tableware">含10套餐具</span>
+                                </li>
+                                <li>
+                                    <img src="img/icon/time.png" alt="" class="icon-sm">
+                                    <span v-text="product.dilivery">最早明天10:00配送</span>
+                                </li>
+                            </ul>
+                            <p class="price-content">
+                                ￥<span>{{product.price|dataFormat}}</span>
+                                <span>/{{product.spec}}</span>
+                            </p>
+                        </div>
+                        <dl class="spec-content clear">
+                            <dt>商品规格</dt>
+                            <dd v-for="item in specs"><a :href=`product_details.html?product_id=${item.product_id}` :class="pid==item.product_id?addClass:''">{{item.spec}}</a></dd>
+                        </dl>
+                    </div>
+                    <div class="btn-content">
+                        <button class="btnBuy-content">立即购买</button>
+                        <button class="btnCart-content" :data-info="product.product_id" @click="cart($event)">加入购物车</button>
+                    </div>
+                    <div class="addSuccess-content">
+                        <p>
+                            <img src="img/icon/iphone.png" alt="" class="icon-md">
+                            成功添加购物车
+                        </p>
+                        <a href="shopping_cart.html" class="go-cart">查看购物车</a>
+                    </div>
+                </div>
+            </div>
+        </section>        
+        <!-- 产品详情 -->
+        <section id="pro_details" class="pro-details">
+            <div v-html="product.details"></div>
+            <div class="materials-details">
+                <h1>主要原材料</h1>
+                <h3>Main raw materials</h3>
+                <div class="sp-details">&nbsp;</div>
+                <div class="mainMat-details">
+                    <div class="foodsMat-details">
+                        <h3>食材配比</h3>
+                        <p v-for="item in product.marterials">{{item}}</p>
+                    </div>
+                    <div class="spaceMat-details">
+                        <h3>产地</h3>
+                        <p v-for="item in product.raw_material">{{item}}</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- 热门推荐 -->
+        <section id="pro_hot" class="pro-hot">
+            <h2>热门推荐</h2>
+            <div class="proList-hot">
+                <ul class="product-list clear">
+                    <li class="product-item" v-for="item in hot">
+                        <div class="product-pic">
+                            <a :href="item.href"><img :src="item.img" :alt="item.title"></a>
+                        </div>
+                        <div class="product-info">
+                            <a :href="item.href">
+                                <h3 class="product-name" v-text="item.title">雪域牛乳芝士蛋糕</h3>
+                            </a>
+                            <div class="product-tag">
+                                <span class="tag" v-for="i in item.tag">{{i}}</span>
+                            </div>
+                            <div class="product-buyInfo">
+                                <span class="product-price">￥{{item.price|dataFormat}}</span>
+                                <a href="#" class="product-cart">加入购物车</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="product-item" v-for="item in hot">
+                        <div class="product-pic">
+                            <a :href="item.href"><img :src="item.img" :alt="item.title"></a>
+                        </div>
+                        <div class="product-info">
+                            <a :href="item.href">
+                                <h3 class="product-name" v-text="item.title">雪域牛乳芝士蛋糕</h3>
+                            </a>
+                            <div class="product-tag">
+                                <span class="tag" v-for="i in item.tag">{{i}}</span>
+                            </div>
+                            <div class="product-buyInfo">
+                                <span class="product-price">￥{{item.price|dataFormat}}</span>
+                                <a href="#" class="product-cart">加入购物车</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <!-- 未登录添加商品 -->
+        <section id="user_login" class="user-login">
+            <a href="javascript:;" @click="login($event)">X</a>
+            您还没有登录，无法将商品添加至购物车！ 
+            <a href="user_login.html">登录</a>
+        </section>
+    </div>
+    <footer  id="globalFooter" class="footer"></footer>
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/axios.min.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/product_details.js"></script>
+</body>
+</html>

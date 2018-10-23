@@ -1,0 +1,158 @@
+/*共用样式*/
+.more{
+    height: 21px;
+    line-height: 21px;
+    margin-top: 18px;
+    text-align: right;
+}
+/*轮播图*/
+.banner{
+    height:387.5px;
+    width: 1240px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+.banner-content{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.banner-item{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.banner-item img{
+    width:100%;
+}
+#banner_btn{
+    display: none;
+}
+.banner-btn-prev,.banner-btn-next{
+    position: absolute;
+    width: 64px;
+    height: 100px;
+    top:50%;
+    margin-top: -50px;
+    cursor: pointer;
+    border-radius: 2px;
+    z-index: 3;
+}
+.banner-btn-prev{
+    left: 20px;
+    background:rgba(0,0,0,.2) url(../img/icon/prev.png) no-repeat 0 18px;
+}
+.banner-btn-next{
+    right: 20px;
+    background:rgba(0,0,0,.2) url(../img/icon/next.png) no-repeat 0 18px;
+}
+/*促销广告*/
+.prom-ads{
+    display: flex;
+    justify-content: space-between;
+}
+.prom-ads>a{
+    width: 589px;
+    height: 256px;
+    overflow: hidden;
+}
+.prom-ads>a img{
+    transition: transform .5s linear;
+}
+.prom-ads>a:hover img{
+    transform:scale(1.05);
+}
+/*蛋糕*/
+.cake{
+    height: 884px;
+    padding-top: 20px;
+}
+/*吐司*/
+.toast-ads img,.gift-ads img{
+    width: 100%;
+}
+.toast,.gift{
+    height: 481px;
+}
+/*用户评价*/
+.eval{
+    height: 513px;
+}
+.eval>h2{
+    text-align: center;
+    padding:16px 0 20px;
+}
+.eval-content{
+    width: 841px;
+    height: 450px;
+    margin:0 auto;
+}
+.eval-list,.eval-slide{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    z-index: 1;
+}
+.eval-slide{
+    width:100%;
+    height: 100%;
+    position: relative;
+}
+.eval-slide>div:last-child{
+    margin-right: 0;
+}
+.slide-active{
+    display:inline-block;
+}
+.eval-item{
+    width: 227px;
+    height: 450px;
+    margin-right: 80px;
+    float: left;
+    position: relative;
+}
+.eval-item-name{
+    height: 100px;
+    text-align: center;
+}
+.img-name{
+    width:68px;
+    height:68px;
+    margin:0 auto 6px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.img-name>img{
+    width: 68px;
+}
+.eval-item-content{
+    height: 260px;
+    padding-top: 60px;
+    background: url(../img/index/index_bg.png)
+}
+.eval-text{
+    width: 158px;
+    height: 108px;
+    line-height: 18px;
+    overflow: hidden;
+    margin:0 auto;
+}
+.eval-time{
+    width: 158px;
+    margin: 0 auto 18px;
+    text-align: right;
+    color:#9c9c9c;
+}
+.eval-cakeInfo{
+    height: 124px;
+    text-align: center;
+}
+.eval-cakeInfo img{
+    width: 227px;
+}

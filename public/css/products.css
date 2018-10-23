@@ -1,0 +1,30 @@
+/*标签*/
+.cake-label{
+    padding: 6px 16px 6px;
+    margin-bottom: 20px;
+    width: 1168px;
+    height: 72px;
+    font-size: 14px;
+    background: #fff;
+}
+.cake-label dl{
+    width: 100%;
+    height: 36px;
+    line-height: 36px;
+}
+.cake-label dl dt{
+    float: left;
+    width: 70px;
+}
+.cake-label dl dd{
+    float:left;
+    margin-right: 40px;
+    cursor: pointer;
+}
+.cake-label dl dd:hover,.cake-label .active{
+    color: #BB9772;
+}
+/* 搜索页面的未登录状态 */
+.search-login{
+    position: relative;
+}

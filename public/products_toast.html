@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/products.css">
+</head>
+<body>
+    <header id="globalHeader" class="header"></header>
+    <div class="container main">
+        <!-- 产品列表 -->
+        <section class="toast-list">
+            <ul class="product-list clear">
+            </ul>
+        </section>
+        <!-- 未登录添加商品 -->
+        <section id="user_login" class="user-login">
+            <a href="javascript:;">X</a>
+            您还没有登录，无法将商品添加至购物车！ 
+            <a href="user_login.html">登录</a>
+        </section>
+    </div>
+    <footer id="globalFooter" class="footer"></footer>
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/axios.min.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/products_toast.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html>

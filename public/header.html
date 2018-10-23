@@ -1,0 +1,98 @@
+<header id="globalHeader" class="header">
+    <!-- 头部一 -->
+    <div id="header_top" class="container header-container">
+        <!--顶部-->
+        <section id="header_bar" class="header-bar">
+            <div class="content-bar" v-show="!isLogin">
+                <a href="user_login.html">登录</a>
+                <span>/</span>
+                <a href="user_register.html">注册</a>
+                <a href="javascript:;" class="wx-bar">
+                    <img src="img/icon/weixin.png" alt="微信" class="icon-md">
+                    <span>微信</span>
+                    <img src="img/header/wx_code.png" alt="微信二维码">
+                </a>
+            </div>
+            <div class="content-bar" v-show="isLogin">
+                <span>
+                    <span>欢迎您，{{uname}}</span>
+                    <a href="javascript:;" class="logout-btn" @click="logout">注销</a>
+                </span>
+                <a href="#" class="order-btn">我的订单</a>
+                <a href="javascript:;" class="wx-bar">
+                    <img src="img/icon/weixin.png" alt="微信" class="icon-md">
+                    <span>微信</span>
+                    <img src="img/header/wx_code.png" alt="微信二维码">
+                </a>
+            </div>
+        </section>
+        <!--中部-->
+        <section class="header-wrap">
+            <div class="city-wrap">
+                <a href="javascript:;">
+                    <img src="img/icon/map.png" alt="定位" class="icon-sm">
+                    <span>杭州</span>
+                </a>
+                <a href="javascript:;" class="city-add-wrap">查询地址是否可配送</a>
+            </div>
+            <div class="logo-wrap">
+                <a href="index.html"><img src="img/header/logo_new.png" alt="诺心logo"></a>  
+            </div>
+            <div class="search-wrap">
+                <p>
+                    <input type="text" class="search-input-wrap" value placeholder="雪域牛乳芝士蛋糕" v-model:value="kw" @keyup.13="search($event)">
+                    <a href="javascript:;" @click="search($event)"><img src="img/icon/search.png" alt="搜索" class="icon-md icon-md-search"></a>
+                </p>
+                <a href="shopping_cart.html"><img src="img/icon/shoppingcar.png" alt="购物车" class="icon-md"></a>
+            </div>
+        </section>
+        <!--底部-->
+        <section id="header_nav" class="header-nav clear">
+            <ul class="header-nav-ul clear">
+                <li class="active"><a href="index.html">首页</a></li>
+                <li><a href="products_cake.html">蛋糕</a></li>
+                <li><a href="products_toast.html">吐司</a></li>
+                <li><a href="products_gift.html">礼品</a></li>
+                <li><a href="#">企业专区</a></li>
+                <li><a href="#">我的诺心</a></li>
+            </ul>
+        </section>
+    </div>
+    <!-- 头部二 -->
+    <div id="header_fixed" class="container-fulid header">
+        <div class="container header-container clear">
+            <!-- 左 logo -->
+            <a href="index.html" class="logo-img"><img src="./img/header/logo_new.png" alt=""></a>
+            <!-- 中 导航 -->
+            <section id="header_navbar" class="header-navbar clear">
+                <ul class="header-navbar-ul clear">
+                    <li class="active"><a href="index.html">首页</a></li>
+                    <li><a href="products_cake.html">蛋糕</a></li>
+                    <li><a href="products_toast.html">吐司</a></li>
+                    <li><a href="products_gift.html">礼品</a></li>
+                    <li><a href="#">企业专区</a></li>
+                    <li><a href="#">我的诺心</a></li>
+                </ul>
+            </section>
+            <!-- 右 搜索 -->
+            <section class="header-rwrap clear">
+                <div class="city-rwrap">
+                    <a href="javascript:;">
+                        <img src="img/icon/map.png" alt="定位" class="icon-md">
+                        <span>杭州</span>
+                    </a>
+                </div>
+                <div id="login_rwrap" class="login-rwrap">
+                    <a href="javascript:;"><img src="./img/icon/login.png" alt="" class="icon-md"></a>
+                    <div class="logReg-rwrap">
+                        <a href="user_login.html">登录</a>
+                        <a href="user_register.html">注册</a>
+                    </div>
+                </div>
+                <div class="cart-rwrap">
+                    <a href="shopping_cart.html"><img src="img/icon/shoppingcar.png" alt="购物车" class="icon-md"></a>
+                </div>
+            </section>
+        </div>
+    </div>
+</header>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/header.css"/>
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <header id="globalHeader" class="header"></header>
+    <div id="main_index" class="container-fulid main">
+        <!--banner-->
+        <section id="banner" class="banner clear">
+            <ul id="banner_main" class="banner-content clear">
+            </ul>
+            <div id="banner_btn" class="banner-btn">
+                <span class="banner-btn-prev"></span>
+                <span class="banner-btn-next"></span>
+            </div>
+        </section>
+        <!-- 促销广告和蛋糕 -->
+        <section class="container">
+            <!--促销广告-->        
+            <div class="prom-ads">
+               <a :href="ads[0].href" target="_blank">
+                    <img :src="ads[0].img" :alt="ads[0].title">
+                </a>
+                 <a :href="ads[1].href" target="_blank">
+                    <img :src="ads[1].img" :alt="ads[1].title">
+                </a>
+            </div>
+            <!--蛋糕-->
+            <div class="cake">
+                <ul class="product-list clear">
+                    <li class="product-item" v-for="item in pro_cake">
+                        <div class="product-item-info">
+                            <div class="product-pic">
+                                <a :href="item.href" target="_blank"><img :src="item.img" :alt="item.title"></a>
+                            </div>
+                            <div class="product-info">
+                                <a :href="item.href" target="_blank">
+                                    <h3 class="product-name" v-text="item.title">item.title"</h3>
+                                    <h4 class="product-des" v-text="item.subtitle">item.subtitle</h4>
+                                </a>
+                                <div class="product-tag">
+                                    <span class="tag" v-for="i in item.tag">{{i}}</span>
+                                </div>
+                                <div class="product-buyInfo">
+                                    <span class="product-price">￥{{item.price|dataFormat}}</span>
+                                    <a href="javascript:;" class="product-cart" @click="cart($event)" :data-info="item.pid">加入购物车</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-item-cartSuccess">
+                            添加成功
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="more">
+                <a href="products_cake.html">更多蛋糕&nbsp;></a>
+            </div>
+        </section>
+        <!-- 吐司 -->
+        <section class="toast-ads">
+            <a :href="ads[2].href" target="_blank">
+                <img :src="ads[2].img" :alt="ads[2].title">
+            </a>
+        </section>
+        <section class="container toast">
+            <ul class="product-list clear">
+                <li class="product-item" v-for="item in pro_toast">
+                    <div class="product-item-info">
+                        <div class="product-pic">
+                            <a :href="item.href" target="_blank"><img :src="item.img" :alt="item.title"></a>
+                        </div>
+                        <div class="product-info">
+                            <a :href="item.href" target="_blank">
+                                <h3 class="product-name" v-text="item.title">item.title</h3>
+                                <h4 class="product-des" v-text="item.subtitle">item.subtitle</h4>
+                            </a>
+                            <div class="product-tag">
+                                <span class="tag" v-for="i in item.tag">{{i}}</span>
+                            </div>
+                            <div class="product-buyInfo">
+                                <span class="product-price">￥{{item.price|dataFormat}}</span>
+                                <a href="#" class="product-cart" @click="cart($event)" :data-info="item.pid">加入购物车</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item-cartSuccess">
+                        添加成功
+                    </div>
+                </li>
+            </ul>
+            <div class="more">
+                <a href="products_toast.html">更多吐司&nbsp;></a>
+            </div>
+        </section>
+        <!--礼品-->
+        <section class="gift-ads">
+            <a :href="ads[3].href" target="_blank">
+                <img :src="ads[3].img" :alt="ads[3].title">
+            </a>
+        </section>
+        <section class="container gift">
+            <ul class="product-list clear">
+                <li class="product-item" v-for="item in pro_gift">
+                    <div class="product-item-info">
+                        <div class="product-pic">
+                            <a :href="item.href" target="_blank"><img :src="item.img" :alt="item.title"></a>
+                        </div>
+                        <div class="product-info">
+                            <a :href="item.href" target="_blank">
+                                <h3 class="product-name" v-text="item.title">item.title</h3>
+                                <h4 class="product-des" v-text="item.subtitle">item.subtitle</h4>
+                            </a>
+                            <div class="product-tag">
+                                <span class="tag" v-for="i in item.tag">{{i}}</span>
+                            </div>
+                            <div class="product-buyInfo">
+                                <span class="product-price">￥{{item.price|dataFormat}}</span>
+                                <a href="#" class="product-cart" @click="cart($event)" :data-info="item.pid">加入购物车</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item-cartSuccess">
+                        添加成功
+                    </div>
+                </li>
+            </ul>
+            <div class="more">
+                <a href="products_gift.html">更多礼品&nbsp;></a>
+            </div>
+        </section>
+        <!--用户评价-->
+        <section class="container eval">
+            <h2>用户评论</h2>
+            <div class="eval-btn"></div>
+            <div class="eval-content">
+                <ul class="eval-list">
+                    <li class="eval-slide clear slide-active">
+                        <div class="eval-item">
+                            <div class="eval-item-name">
+                                <div class="img-name"><img src="img/users/user_img1.png" alt=""></div>
+                                <p>139****6003</p>
+                            </div>
+                            <div class="eval-item-content">
+                                <p class="eval-text">
+                                    同事都说好吃，蛋糕不是很甜，都愿意吃，底下的像饼干一样的碎片，最好吃，哈哈，最后连渣渣都吃掉了~
+                                </p>
+                                <p class="eval-time">2018-09-12</p>
+                                <div class="eval-cakeInfo">
+                                    <a href="javascript:;">
+                                        <img src="img/index/index_comment1.png" alt="">
+                                        <p>立即购买</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="eval-item">
+                            <div class="eval-item-name">
+                                <div class="img-name"><img src="img/users/user_img1.png" alt=""></div>
+                                <p>139****6003</p>
+                            </div>
+                            <div class="eval-item-content">
+                                <p class="eval-text">
+                                    同事都说好吃，蛋糕不是很甜，都愿意吃，底下的像饼干一样的碎片，最好吃，哈哈，最后连渣渣都吃掉了~
+                                </p>
+                                <p class="eval-time">2018-09-12</p>
+                                <div class="eval-cakeInfo">
+                                    <a href="javascript:;">
+                                        <img src="img/index/index_comment1.png" alt="">
+                                        <p>立即购买</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="eval-item">
+                            <div class="eval-item-name">
+                                <div class="img-name"><img src="img/users/user_img1.png" alt=""></div>
+                                <p>139****6003</p>
+                            </div>
+                            <div class="eval-item-content">
+                                <p class="eval-text">
+                                    同事都说好吃，蛋糕不是很甜，都愿意吃，底下的像饼干一样的碎片，最好吃，哈哈，最后连渣渣都吃掉了~
+                                </p>
+                                <p class="eval-time">2018-09-12</p>
+                                <div class="eval-cakeInfo">
+                                    <a href="javascript:;">
+                                        <img src="img/index/index_comment1.png" alt="">
+                                        <p>立即购买</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="eval-slide clear">
+                        <div class="eval-item">
+                            <div class="eval-item-name">
+                                <div class="img-name"><img src="img/users/user_img1.png" alt=""></div>
+                                <p>139****6003</p>
+                            </div>
+                            <div class="eval-item-content">
+                                <p class="eval-text">
+                                    同事都说好吃，蛋糕不是很甜，都愿意吃，底下的像饼干一样的碎片，最好吃，哈哈，最后连渣渣都吃掉了~
+                                </p>
+                                <p class="eval-time">2018-09-12</p>
+                                <div class="eval-cakeInfo">
+                                    <a href="javascript:;">
+                                        <img src="img/index/index_comment1.png" alt="">
+                                        <p>立即购买</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="eval-item">
+                            <div class="eval-item-name">
+                                <div class="img-name"><img src="img/users/user_img1.png" alt=""></div>
+                                <p>139****6003</p>
+                            </div>
+                            <div class="eval-item-content">
+                                <p class="eval-text">
+                                    同事都说好吃，蛋糕不是很甜，都愿意吃，底下的像饼干一样的碎片，最好吃，哈哈，最后连渣渣都吃掉了~
+                                </p>
+                                <p class="eval-time">2018-09-12</p>
+                                <div class="eval-cakeInfo">
+                                    <a href="javascript:;">
+                                        <img src="img/index/index_comment1.png" alt="">
+                                        <p>立即购买</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="eval-item">
+                            <div class="eval-item-name">
+                                <div class="img-name"><img src="img/users/user_img1.png" alt=""></div>
+                                <p>139****6003</p>
+                            </div>
+                            <div class="eval-item-content">
+                                <p class="eval-text">
+                                    同事都说好吃，蛋糕不是很甜，都愿意吃，底下的像饼干一样的碎片，最好吃，哈哈，最后连渣渣都吃掉了~
+                                </p>
+                                <p class="eval-time">2018-09-12</p>
+                                <div class="eval-cakeInfo">
+                                    <a href="javascript:;">
+                                        <img src="img/index/index_comment1.png" alt="">
+                                        <p>立即购买</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="eval-slide clear">
+                        <div class="eval-item">
+                            <div class="eval-item-name">
+                                <div class="img-name"><img src="img/users/user_img1.png" alt=""></div>
+                                <p>139****6003</p>
+                            </div>
+                            <div class="eval-item-content">
+                                <p class="eval-text">
+                                    同事都说好吃，蛋糕不是很甜，都愿意吃，底下的像饼干一样的碎片，最好吃，哈哈，最后连渣渣都吃掉了~
+                                </p>
+                                <p class="eval-time">2018-09-12</p>
+                                <div class="eval-cakeInfo">
+                                    <a href="javascript:;">
+                                        <img src="img/index/index_comment1.png" alt="">
+                                        <p>立即购买</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="eval-item">
+                            <div class="eval-item-name">
+                                <div class="img-name"><img src="img/users/user_img1.png" alt=""></div>
+                                <p>139****6003</p>
+                            </div>
+                            <div class="eval-item-content">
+                                <p class="eval-text">
+                                    同事都说好吃，蛋糕不是很甜，都愿意吃，底下的像饼干一样的碎片，最好吃，哈哈，最后连渣渣都吃掉了~
+                                </p>
+                                <p class="eval-time">2018-09-12</p>
+                                <div class="eval-cakeInfo">
+                                    <a href="javascript:;">
+                                        <img src="img/index/index_comment1.png" alt="">
+                                        <p>立即购买</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="eval-item">
+                            <div class="eval-item-name">
+                                <div class="img-name"><img src="img/users/user_img1.png" alt=""></div>
+                                <p>139****6003</p>
+                            </div>
+                            <div class="eval-item-content">
+                                <p class="eval-text">
+                                    同事都说好吃，蛋糕不是很甜，都愿意吃，底下的像饼干一样的碎片，最好吃，哈哈，最后连渣渣都吃掉了~
+                                </p>
+                                <p class="eval-time">2018-09-12</p>
+                                <div class="eval-cakeInfo">
+                                    <a href="javascript:;">
+                                        <img src="img/index/index_comment1.png" alt="">
+                                        <p>立即购买</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <!-- 未登录添加商品 -->
+        <section id="user_login" class="user-login">
+            <a href="javascript:;" @click="login($event)">X</a>
+            您还没有登录，无法将商品添加至购物车！ 
+            <a href="user_login.html">登录</a>
+        </section>
+    </div>
+    <footer id="globalFooter" class="footer"></footer>
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/axios.min.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/index.js"></script> 
+    <script src="js/animated.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html>
